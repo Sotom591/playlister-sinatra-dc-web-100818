@@ -9,9 +9,7 @@ module Slug
   module ClassMethods
 
     def find_by_slug(slugged_name)
-      binding.pry
       self.all.select {|obj| obj.slug == slugged_name}
-
     end
 
   end

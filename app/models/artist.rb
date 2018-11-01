@@ -1,6 +1,11 @@
+require_relative './concerns/slugifiable.rb'
+
 class Artist < ActiveRecord::Base
-  has_many :genres, through: :songs
+  include Slug::InstanceMethods
+  extend Slug::ClassMethods
   has_many :songs
+  has_many :genres, through: :songs
+
 
 
 end
