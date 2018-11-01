@@ -10,9 +10,12 @@
   </select>
 
   <label for="genre">Choose A Genre</label>
-    
-    <input type="checkbox" name="genre[name]">
 
+    <% @genres.each do |genre| %>
+    <input type="checkbox" name="song[song_genres][genre_ids][]"
+      value="<%= genre.id %>" id="<%= genre.id %>"><%= genre.name %>
+      </input>
+      <% end %>
 
 
     <input type="submit" name="Create A New Song">

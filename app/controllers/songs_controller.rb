@@ -6,7 +6,7 @@ class SongsController < ApplicationController
     erb :index
   end
 
-  get '/new' do
+  get '/songs/new' do
     @artists = Artist.all
     @genres = Genre.all
     erb :new
@@ -17,7 +17,6 @@ class SongsController < ApplicationController
     artist_id = params[:artist]
     artist = Artist.find(artist_id)
     song = Song.create(name: name, artist: artist)
-    binding.pry
     redirect "/songs/#{song.slug}"
   end
 
